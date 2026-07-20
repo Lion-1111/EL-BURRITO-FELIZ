@@ -34,7 +34,7 @@ export default function MenuSection() {
   return (
     <section ref={rootRef} id="menu" className="section-padding relative bg-ink-800">
       <div className="mx-auto max-w-6xl">
-        <div className="menu-title mb-8 text-center">
+        <div className="menu-title mb-8 text-center px-4">
           <span className="heading-accent text-sm tracking-[0.3em] text-ember-400">Menú</span>
           <h2 className="heading-display mt-3 text-4xl text-cream-50 sm:text-5xl">Elige tu <span className="text-gradient-warm">favorito</span></h2>
         </div>
@@ -45,20 +45,27 @@ export default function MenuSection() {
             <button
               key={cat.id}
               onClick={() => setActiveCat(cat.id)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
-                activeCat === cat.id
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${activeCat === cat.id
                   ? 'bg-gradient-to-r from-ember-500 to-chili-600 text-cream-50 shadow-lg shadow-ember-600/30'
                   : 'border border-wood-400/20 bg-ink-700/50 text-cream-200/60 hover:border-wood-400/40'
-              }`}
+                }`}
             >
               {cat.label}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Indicador de scroll para móviles */}
+        <div className="mb-4 flex items-center justify-end px-6 sm:hidden">
+          <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-wood-300">
+            Desliza para ver más
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse text-ember-400"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+
+        <div className="flex gap-4 px-6 overflow-x-auto pb-8 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 sm:px-0 sm:overflow-visible sm:snap-none sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {filtered.map((item: MenuItem) => (
-            <article key={item.id} className="menu-card group relative overflow-hidden rounded-2xl border border-wood-400/10 bg-ink-700/60 transition-all duration-500 hover:border-wood-400/30">
+            <article key={item.id} className="menu-card group relative overflow-hidden rounded-2xl border border-wood-400/10 bg-ink-700/60 transition-all duration-500 hover:border-wood-400/30 w-[75vw] max-w-sm shrink-0 snap-center sm:w-auto sm:shrink sm:max-w-none sm:snap-align-none">
               <div className="relative h-52 overflow-hidden">
                 <img src={item.image} alt={item.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-700 via-ink-700/30 to-transparent" />

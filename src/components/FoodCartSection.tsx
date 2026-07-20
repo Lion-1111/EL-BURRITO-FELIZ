@@ -41,7 +41,7 @@ export default function FoodCartSection() {
 
         <div className="cart-img relative mb-12 overflow-hidden rounded-3xl border border-wood-400/10">
           <img
-            src="https://images.pexels.com/photos/37816590/pexels-photo-37816590/free-photo-of-street-food-cart-in-ciudad-de-mexico-market-scene.jpeg?auto=compress&cs=tinysrgb&w=1000"
+            src="https://images.unsplash.com/photo-1568031813264-d394c5d474b9?auto=format&fit=crop&w=1000&q=80"
             alt="Carrito de comida mexicana"
             loading="lazy"
             className="h-full w-full object-cover"

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown, Flame } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { heroVideoUrl, heroVideoPoster } from '../data';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +19,7 @@ export default function Hero() {
   useEffect(() => {
     // Try to play video (muted autoplay)
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
 
     const ctx = gsap.context(() => {
@@ -72,7 +73,7 @@ export default function Hero() {
         <p ref={subRef} className="mt-6 max-w-md text-base text-cream-200/70 sm:text-lg">
           Los mejores burritos de la ciudad, hechos en carrito callejero con tortillas de harina reciÃ©n hechas y mucho sabor.
         </p>
-        <div ref={scrollRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}><Link to="/menu" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ember-600 px-8 py-3.5 text-base font-bold text-white transition-all hover:bg-ember-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(225,82,61,0.4)] active:scale-95"><span className="relative z-10 flex items-center gap-2">Ver menú completo <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></Link></div><div ref={scrollRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="text-[10px] tracking-[0.3em] text-wood-300 uppercase">Desliza</span>
           <ChevronDown className="h-5 w-5 animate-bounce text-wood-300" />
         </div>

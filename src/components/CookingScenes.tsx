@@ -26,7 +26,7 @@ export default function CookingScenes() {
   return (
     <section ref={rootRef} className="relative bg-ink-900">
       <div className="scene-grill relative h-[80vh] w-full overflow-hidden">
-        <div className="scene-grill-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.5), rgba(10,7,5,0.9)), url('https://images.pexels.com/photos/2611917/pexels-photo-2611917.jpeg?auto=compress&cs=tinysrgb&w=1000')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="scene-grill-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.5), rgba(10,7,5,0.9)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-40 w-72 -translate-x-1/2 rounded-full bg-ember-500/20 blur-[80px]" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <div className="scene-grill-text">
@@ -39,7 +39,7 @@ export default function CookingScenes() {
       </div>
 
       <div className="scene-cheese relative h-[80vh] w-full overflow-hidden">
-        <div className="scene-cheese-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.4), rgba(10,7,5,0.85)), url('https://images.pexels.com/photos/3769530/pexels-photo-3769530.jpeg?auto=compress&cs=tinysrgb&w=1000')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="scene-cheese-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.4), rgba(10,7,5,0.85)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="pointer-events-none absolute bottom-1/3 left-1/2 h-32 w-64 -translate-x-1/2 rounded-full bg-ember-300/15 blur-[60px]" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <div className="scene-cheese-text">
@@ -52,14 +52,14 @@ export default function CookingScenes() {
       </div>
 
       <div className="scene-ingredients relative h-[80vh] w-full overflow-hidden">
-        <div className="scene-ingredients-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.5), rgba(10,7,5,0.9)), url('https://images.pexels.com/photos/5033529/pexels-photo-5033529.jpeg?auto=compress&cs=tinysrgb&w=1000')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="scene-ingredients-bg absolute inset-0 will-change-transform" style={{ backgroundImage: "linear-gradient(to bottom, rgba(10,7,5,0.5), rgba(10,7,5,0.9)), url('https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=1000&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="pointer-events-none absolute inset-0">
           {[
-            { img: 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=80', top: '15%', left: '20%', size: 40 },
-            { img: 'https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=80', top: '25%', left: '70%', size: 50 },
-            { img: 'https://images.pexels.com/photos/3769530/pexels-photo-3769530.jpeg?auto=compress&cs=tinysrgb&w=80', top: '60%', left: '15%', size: 45 },
-            { img: 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=80', top: '70%', left: '75%', size: 35 },
-            { img: 'https://images.pexels.com/photos/5033529/pexels-photo-5033529.jpeg?auto=compress&cs=tinysrgb&w=80', top: '40%', left: '50%', size: 30 },
+            { img: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=100&q=80', top: '15%', left: '20%', size: 40 },
+            { img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=100&q=80', top: '25%', left: '70%', size: 50 },
+            { img: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=100&q=80', top: '60%', left: '15%', size: 45 },
+            { img: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=100&q=80', top: '70%', left: '75%', size: 35 },
+            { img: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=100&q=80', top: '40%', left: '50%', size: 30 },
           ].map((p, i) => (
             <div key={i} className="particle absolute rounded-full" style={{ top: p.top, left: p.left, width: p.size, height: p.size, backgroundImage: `url('${p.img}')`, backgroundSize: 'cover', opacity: 0.4 }} />
           ))}

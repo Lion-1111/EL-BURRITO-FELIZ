@@ -59,14 +59,15 @@ export default function UbicacionHorarios() {
               </div>
             </div>
           </div>
-          <div className="loc-map overflow-hidden rounded-2xl border border-wood-400/10">
-            <iframe
-              title="Ubicación El Patrón"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-99.175%2C19.415%2C-99.155%2C19.435&layer=mapnik&marker=19.4251%2C-99.1637"
-              className="h-full min-h-[400px] w-full"
-              loading="lazy"
-              style={{ border: 0, filter: 'invert(0.9) hue-rotate(180deg) saturate(0.6)' }}
-            />
+          <div className="loc-map overflow-hidden rounded-2xl border border-wood-400/10 relative min-h-[400px] bg-ink-900 group">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Mapa" className="absolute inset-0 h-full w-full object-cover opacity-40 transition-opacity duration-500 group-hover:opacity-20" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+              <MapPin className="mb-4 h-12 w-12 text-ember-400" />
+              <h4 className="mb-6 font-display text-2xl font-bold text-cream-50">Encuéntranos aquí</h4>
+              <a href={locationInfo.mapUrl} target="_blank" rel="noopener noreferrer" className="btn-primary flex items-center gap-2">
+                Abrir en Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>

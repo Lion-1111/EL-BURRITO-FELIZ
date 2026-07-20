@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = '525512345678';
+export const WHATSAPP_NUMBER = '526643644734';
 
 export interface MenuItem {
   id: string;
@@ -18,7 +18,7 @@ export const menuItems: MenuItem[] = [
     price: 110,
     category: 'burritos',
     tag: 'El más pedido',
-    image: 'https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'burrito-norteno',
@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
     description: 'Carne deshebrada en salsa roja, frijoles refritos, queso fundido, aguacate y crema. Tortilla grande de harina.',
     price: 95,
     category: 'burritos',
-    image: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'burrito-bistec',
@@ -34,7 +34,7 @@ export const menuItems: MenuItem[] = [
     description: 'Bistec a la plancha en tiras, pimientos asados, cebolla, queso fundido y salsa de la casa. Generoso y jugoso.',
     price: 105,
     category: 'burritos',
-    image: 'https://images.pexels.com/photos/460837/pexels-photo-460837.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?auto=format&fit=crop&w=600&q=80',
   },
   {
     id: 'torta-cubana',
@@ -43,7 +43,7 @@ export const menuItems: MenuItem[] = [
     price: 95,
     category: 'tortas',
     tag: 'La más pedida',
-    image: 'https://images.pexels.com/photos/35638001/pexels-photo-35638001.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/torta_cubana.png',
   },
   {
     id: 'torta-pastor',
@@ -51,7 +51,7 @@ export const menuItems: MenuItem[] = [
     description: 'Cerdo al trompo con piña, queso, aguacate, cebolla y cilantro. Pan tostado a la plancha con un toque de adobo.',
     price: 85,
     category: 'tortas',
-    image: 'https://images.pexels.com/photos/30179627/pexels-photo-30179627.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/torta_pastor.png',
   },
   {
     id: 'torta-milanesa',
@@ -59,7 +59,7 @@ export const menuItems: MenuItem[] = [
     description: 'Milanesa de res crujiente, queso, lechuga, jitomate, cebolla y mayo de chipotle. Pan bolillo recién horneado.',
     price: 80,
     category: 'tortas',
-    image: 'https://images.pexels.com/photos/35020127/pexels-photo-35020127.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/torta_milanesa.png',
   },
   {
     id: 'tacos-pastor',
@@ -68,7 +68,7 @@ export const menuItems: MenuItem[] = [
     price: 35,
     category: 'tacos',
     tag: 'Clásico',
-    image: 'https://images.pexels.com/photos/2092507/pexels-photo-2092507.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/tacos_pastor.png',
   },
   {
     id: 'tacos-bistec',
@@ -76,7 +76,7 @@ export const menuItems: MenuItem[] = [
     description: 'Bistec a la plancha en trozos, cebolla, cilantro, limón y salsa verde. Tortillas recién hechas en comal.',
     price: 40,
     category: 'tacos',
-    image: 'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/tacos_bistec.png',
   },
   {
     id: 'tacos-quesabirria',
@@ -85,7 +85,7 @@ export const menuItems: MenuItem[] = [
     price: 45,
     category: 'tacos',
     tag: 'Nuevo',
-    image: 'https://images.pexels.com/photos/6429488/pexels-photo-6429488.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/tacos_quesabirria.png',
   },
 ];
 
@@ -96,12 +96,12 @@ export const specialties = [
 ];
 
 export const ingredients = [
-  { name: 'Carne Asada', desc: 'Cortada al momento', img: 'https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Queso Oaxaca', desc: 'Fundido a la llama', img: 'https://images.pexels.com/photos/3769530/pexels-photo-3769530.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Aguacate Hass', desc: 'Rebanado al momento', img: 'https://images.pexels.com/photos/5848479/pexels-photo-5848479.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Frijoles Puercos', desc: 'Olla de barro, lento', img: 'https://images.pexels.com/photos/6429488/pexels-photo-6429488.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Tortilla de Harina', desc: 'Hecha a mano', img: 'https://images.pexels.com/photos/460837/pexels-photo-460837.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Cebolla y Cilantro', desc: 'Siempre fresco', img: 'https://images.pexels.com/photos/5033529/pexels-photo-5033529.jpeg?auto=compress&cs=tinysrgb&w=400' },
+  { name: 'Carne Asada', desc: 'Cortada al momento', img: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Queso Oaxaca', desc: 'Fundido a la llama', img: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Aguacate Hass', desc: 'Rebanado al momento', img: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Frijoles Puercos', desc: 'Olla de barro, lento', img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Tortilla de Harina', desc: 'Hecha a mano', img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Cebolla y Cilantro', desc: 'Siempre fresco', img: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=400&q=80' },
 ];
 
 export const testimonials = [
@@ -118,10 +118,11 @@ export const schedule = [
 ];
 
 export const locationInfo = {
-  address: 'Av. Reforma 1842, Roma Norte',
-  city: 'Ciudad de México, CDMX 06700',
-  phone: '+52 55 1234 5678',
+  address: 'Tijuana, B.C.',
+  city: 'México',
+  phone: '664 364 4734',
   email: 'hola@elpatron.mx',
+  mapUrl: 'https://maps.app.goo.gl/yDubSz1hSt9jVSzaA?g_st=ai'
 };
 
 // Pexels free stock videos — burrito making
