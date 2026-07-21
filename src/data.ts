@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
     description: 'Carne deshebrada en salsa roja, frijoles refritos, queso fundido, aguacate y crema. Tortilla grande de harina.',
     price: 95,
     category: 'burritos',
-    image: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?auto=format&fit=crop&w=600&q=80',
+    image: '/images/burrito_norteno.jpg',
   },
   {
     id: 'burrito-bistec',
@@ -34,7 +34,7 @@ export const menuItems: MenuItem[] = [
     description: 'Bistec a la plancha en tiras, pimientos asados, cebolla, queso fundido y salsa de la casa. Generoso y jugoso.',
     price: 105,
     category: 'burritos',
-    image: 'https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?auto=format&fit=crop&w=600&q=80',
+    image: '/images/burrito_de_bistec.jpg',
   },
   {
     id: 'torta-cubana',
@@ -101,7 +101,7 @@ export const ingredients = [
   { name: 'Aguacate Hass', desc: 'Rebanado al momento', img: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=400&q=80' },
   { name: 'Frijoles Puercos', desc: 'Olla de barro, lento', img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=400&q=80' },
   { name: 'Tortilla de Harina', desc: 'Hecha a mano', img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=400&q=80' },
-  { name: 'Cebolla y Cilantro', desc: 'Siempre fresco', img: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=400&q=80' },
+  { name: 'Cebolla y Cilantro', desc: 'Siempre fresco', img: '/images/cebolla_y_cilantro.jpg' },
 ];
 
 export const testimonials = [

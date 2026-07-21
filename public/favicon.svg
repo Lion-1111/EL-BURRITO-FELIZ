@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Shell / tortilla -->
+  <ellipse cx="32" cy="48" rx="28" ry="10" fill="#c8860a"/>
+  <!-- Taco shell curved body -->
+  <path d="M4 48 Q12 20 32 16 Q52 20 60 48 Z" fill="#e8a020"/>
+  <!-- Filling - lettuce -->
+  <path d="M10 46 Q20 30 32 28 Q44 30 54 46 Z" fill="#4a9c3f"/>
+  <!-- Filling - meat -->
+  <path d="M14 46 Q22 35 32 33 Q42 35 50 46 Z" fill="#8b3a0f"/>
+  <!-- Filling - cheese -->
+  <path d="M16 46 Q24 38 32 37 Q40 38 48 46 Z" fill="#f0c040"/>
+  <!-- Taco shell top edge highlight -->
+  <path d="M4 48 Q12 20 32 16 Q52 20 60 48" fill="none" stroke="#f5b52a" stroke-width="2"/>
+</svg>
