@@ -40,7 +40,7 @@ export default function useScrollCanvasLayers({ layers, canvasRef, triggerRef, p
     images.current = imgEls;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = canvas.clientWidth * dpr;
       canvas.height = canvas.clientHeight * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -54,7 +54,7 @@ export default function useScrollCanvasLayers({ layers, canvasRef, triggerRef, p
     });
 
     const render = () => {
-      smoothProgress.current += (scrollProgress.current - smoothProgress.current) * 0.08;
+      smoothProgress.current += (scrollProgress.current - smoothProgress.current) * 0.22;
       const p = smoothProgress.current;
       const cw = canvas.clientWidth, ch = canvas.clientHeight;
       ctx.clearRect(0, 0, cw, ch);
@@ -65,11 +65,12 @@ export default function useScrollCanvasLayers({ layers, canvasRef, triggerRef, p
         if (p >= layer.endProgress) opacity = 1;
         else if (p >= layer.startProgress) {
           const t = (p - layer.startProgress) / (layer.endProgress - layer.startProgress);
-          opacity = t * t * (3 - 2 * t);
+          opacity = t;
         }
         if (opacity <= 0.001) return;
         let offsetY = 0;
-        if (parallax && parallax[i]) offsetY = parallax[i] * (1 - p);
+        const isMobile = window.innerWidth < 768;
+        if (!isMobile && parallax && parallax[i]) offsetY = parallax[i] * (1 - p);
         ctx.globalAlpha = opacity;
         drawCover(ctx, canvas, img, offsetY);
       });

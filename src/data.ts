@@ -121,7 +121,6 @@ export const locationInfo = {
   address: 'Tijuana, B.C.',
   city: 'México',
   phone: '664 364 4734',
-  email: 'hola@elpatron.mx',
   mapUrl: 'https://maps.app.goo.gl/yDubSz1hSt9jVSzaA?g_st=ai'
 };
 

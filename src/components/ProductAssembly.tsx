@@ -42,10 +42,10 @@ export default function ProductAssembly() {
     const ctx = gsap.context(() => {
       const stepEls = stepsRef.current?.querySelectorAll('.step-item');
       stepEls?.forEach((el) => {
-        gsap.fromTo(el, { opacity: 0.15, x: 30 }, {
-          opacity: 1, x: 0, duration: 0.5, ease: 'power2.out',
+        gsap.fromTo(el, { opacity: 0.2, x: 20 }, {
+          opacity: 1, x: 0, duration: 0.3, ease: 'power2.out',
           scrollTrigger: {
-            trigger: el, start: 'top 80%', end: 'bottom 60%',
+            trigger: el, start: 'top 85%', end: 'bottom 55%',
             toggleActions: 'play reverse play reverse',
           },
         });
@@ -59,11 +59,11 @@ export default function ProductAssembly() {
       <div ref={triggerRef} className="relative h-[400vh]">
         <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
           {/* Canvas con la imagen del paso actual */}
-          <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-60" />
+          <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" />
 
           {/* Gradientes encima para que el texto sea legible */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-ink-900/60" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink-900/80 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/20 to-ink-900/40" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink-900/60 via-transparent to-transparent" />
 
           {/* Título fijo arriba a la izquierda */}
           <div className="pointer-events-none absolute left-0 top-12 z-10 px-6 sm:top-16 sm:px-12 lg:px-20">

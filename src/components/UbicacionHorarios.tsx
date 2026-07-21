@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { schedule, locationInfo } from '../data';
+import { MapPin, Phone, MessageCircle, Clock } from 'lucide-react';
+import { schedule, locationInfo, WHATSAPP_NUMBER } from '../data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,8 +40,8 @@ export default function UbicacionHorarios() {
                   <a href={`tel:${locationInfo.phone}`} className="text-sm text-cream-200/70 hover:text-ember-400">{locationInfo.phone}</a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-wood-300" />
-                  <a href={`mailto:${locationInfo.email}`} className="text-sm text-cream-200/70 hover:text-ember-400">{locationInfo.email}</a>
+                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20hacer%20un%20pedido`} target="_blank" rel="noopener noreferrer" className="text-sm text-[#25D366] hover:text-[#1da851] font-medium">Hacer pedido por WhatsApp</a>
                 </div>
               </div>
             </div>
