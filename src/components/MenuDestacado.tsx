@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { menuItems, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data';
+import { menuItems, WHATSAPP_NUMBER } from '../data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +33,7 @@ export default function MenuDestacado() {
     return () => ctx.revert();
   }, []);
 
-  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, me gustaría hacer un pedido')}`;
 
   return (
     <section ref={rootRef} className="section-padding relative bg-ink-800">
