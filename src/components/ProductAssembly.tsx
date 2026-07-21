@@ -1,23 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useScrollCanvasLayers from '../hooks/useScrollCanvasLayers';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Cada imagen corresponde EXACTAMENTE a su paso
 const layers = [
-  // Paso 1 – Tortilla de harina
   { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Stacks_of_corn_tortillas_and_flour_tortillas%2C_with_the_top_one_rolled%2C_side_view_%282%29.jpg/1280px-Stacks_of_corn_tortillas_and_flour_tortillas%2C_with_the_top_one_rolled%2C_side_view_%282%29.jpg', startProgress: 0, endProgress: 0.12 },
-  // Paso 2 – Carne asada en la plancha
   { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Carne_asada_%284472586086%29.jpg/1280px-Carne_asada_%284472586086%29.jpg', startProgress: 0.12, endProgress: 0.28 },
-  // Paso 3 – Queso fundido / derretido
   { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Quesillo_de_Oaxaca.png/1280px-Quesillo_de_Oaxaca.png', startProgress: 0.28, endProgress: 0.45 },
-  // Paso 4 – Aguacate, jitomate, vegetales frescos
   { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Mmm..._Pico_de_Gallo_%285923456035%29.jpg/1280px-Mmm..._Pico_de_Gallo_%285923456035%29.jpg', startProgress: 0.45, endProgress: 0.62 },
-  // Paso 5 – Frijoles y salsa
   { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Frijoles_refritos.jpg/1280px-Frijoles_refritos.jpg', startProgress: 0.62, endProgress: 0.78 },
-  // Paso 6 – Burrito terminado, listo para servir
   { src: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Burrito.JPG', startProgress: 0.78, endProgress: 1.0 },
 ];
 
@@ -30,22 +22,46 @@ const steps = [
   { label: 'Listo para ti', desc: 'Vapor saliendo, sabor que se siente en cada mordida.' },
 ];
 
+function getActiveIndex(progress: number): number {
+  for (let i = layers.length - 1; i >= 0; i--) {
+    if (progress >= layers[i].startProgress) return i;
+  }
+  return 0;
+}
+
 export default function ProductAssembly() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const progressRef = useRef(0);
 
-  useScrollCanvasLayers({ layers, canvasRef, triggerRef, parallax: [0, 8, 5, 6, 3, 0] });
+  // CSS-based image switcher — uses GPU compositing, no canvas overhead
+  useEffect(() => {
+    if (!triggerRef.current) return;
 
+    const st = ScrollTrigger.create({
+      trigger: triggerRef.current,
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        progressRef.current = self.progress;
+        setActiveIndex(getActiveIndex(self.progress));
+      },
+    });
+
+    return () => st.kill();
+  }, []);
+
+  // Step text animations
   useEffect(() => {
     const ctx = gsap.context(() => {
       const stepEls = stepsRef.current?.querySelectorAll('.step-item');
       stepEls?.forEach((el) => {
-        gsap.fromTo(el, { opacity: 0.2, x: 20 }, {
-          opacity: 1, x: 0, duration: 0.3, ease: 'power2.out',
+        gsap.fromTo(el, { opacity: 0.15, x: 18 }, {
+          opacity: 1, x: 0, duration: 0.25, ease: 'power2.out',
           scrollTrigger: {
-            trigger: el, start: 'top 85%', end: 'bottom 55%',
+            trigger: el, start: 'top 88%', end: 'bottom 52%',
             toggleActions: 'play reverse play reverse',
           },
         });
@@ -56,16 +72,37 @@ export default function ProductAssembly() {
 
   return (
     <section ref={rootRef} className="relative bg-ink-900">
+      {/* Preload all images */}
+      {layers.map((l) => (
+        <link key={l.src} rel="preload" as="image" href={l.src} />
+      ))}
+
       <div ref={triggerRef} className="relative h-[400vh]">
         <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
-          {/* Canvas con la imagen del paso actual */}
-          <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" />
 
-          {/* Gradientes encima para que el texto sea legible */}
+          {/* CSS image stack — GPU-composited, instant transitions */}
+          <div className="absolute inset-0">
+            {layers.map((layer, i) => (
+              <img
+                key={i}
+                src={layer.src}
+                alt=""
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchPriority={i === 0 ? 'high' : 'low'}
+                className="absolute inset-0 h-full w-full object-cover will-change-opacity"
+                style={{
+                  opacity: i === activeIndex ? 0.9 : 0,
+                  transition: 'opacity 0.25s ease',
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Gradient overlays */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/20 to-ink-900/40" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink-900/60 via-transparent to-transparent" />
 
-          {/* Título fijo arriba a la izquierda */}
+          {/* Title */}
           <div className="pointer-events-none absolute left-0 top-12 z-10 px-6 sm:top-16 sm:px-12 lg:px-20">
             <span className="heading-accent text-sm tracking-[0.3em] text-ember-400">La Obra Maestra</span>
             <h2 className="heading-display mt-2 text-3xl text-cream-50 sm:text-5xl">
@@ -73,7 +110,7 @@ export default function ProductAssembly() {
             </h2>
           </div>
 
-          {/* Lista de pasos — aparecen con el scroll */}
+          {/* Steps list */}
           <div className="absolute inset-0 z-10 flex items-end justify-center pb-16 sm:items-center sm:justify-end sm:pb-0 sm:pr-12 lg:pr-20">
             <div ref={stepsRef} className="w-full max-w-md space-y-3 px-6 sm:px-0 sm:space-y-4">
               {steps.map((step, i) => (
